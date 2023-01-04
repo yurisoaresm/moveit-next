@@ -1,7 +1,15 @@
-import type { AppProps } from 'next/app'
+import { useState } from 'react';
+import type { AppProps } from 'next/app';
+
+import { ChallengesProvider } from '../contexts/ChallengesContext';
 
 import '../styles/globals.css'
 
+
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <ChallengesProvider>
+      <Component {...pageProps} />
+    </ChallengesProvider>
+  )
 }
